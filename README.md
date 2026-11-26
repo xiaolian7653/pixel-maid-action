@@ -2,7 +2,7 @@
 
 单文件 H5 像素风横版动作原型：原生 Canvas + 内联 CSS/JS，零依赖、零构建，打开即玩。
 
-**在线试玩**：<https://4mjvvkq325ct5.doubao.link/app/app_17jmg19qedf>
+**在线试玩**：<https://4mjvvkq325ct5.doubao.link/app/app_17jmg19qedf> ｜ GitHub Pages：<https://xiaolian7653.github.io/pixel-maid-action/>
 
 ![场景光影](screenshots/lighting.png)
 
