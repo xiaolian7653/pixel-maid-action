@@ -1,0 +1,47 @@
+{
+ "idle": [
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/idle1.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/idle2.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/idle3.png"
+ ],
+ "walk": [
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/walk1.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/walk2.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/walk3.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/walk4.png"
+ ],
+ "run": [
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/run1.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/run2.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/run3.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/run4.png"
+ ],
+ "jump": [
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/jump1.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/jump2.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/jump3.png"
+ ],
+ "dash": [
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/dash1.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/dash2.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/dash3.png"
+ ],
+ "attack": [
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/attack1.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/attack2.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/attack3.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/attack4.png"
+ ],
+ "down": [
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/down1.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/down2.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/down3.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/down4.png"
+ ],
+ "hit": [
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/hit1.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/hit2.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/hit3.png",
+  "/home/user/Doubao/chats/38432631486456834/assets/preview/refined/hit4.png"
+ ]
+}

@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "version": "1.1",
+    "logicTickHz": 60,
+    "units": "逻辑时间一律 tick（1 tick = 1/60 s）；anim.frames 为美术帧数，anim.fps 为播放帧率",
+    "priority": ["parryPerfect", "parryLight", "hold"]
+  },
+
+  "input": {
+    "pressToParry": true,
+    "holdSwitchTicks": 15,
+    "bufferTicks": 6,
+    "note": "按下防御立即进入 parry 尝试；按住超过 holdSwitchTicks 才切换为 hold，消除短按/长按歧义；后摇中允许 bufferTicks 内的预输入"
+  },
+
+  "stamina": {
+    "max": 100,
+    "regenDelayTicks": 24,
+    "regenPerSec": 20,
+    "pauseRegenWhile": ["hold", "parryLight", "parryPerfect", "break"]
+  },
+
+  "moves": {
+    "hold": {
+      "label": "稳守｜长按格挡",
+      "anim": { "key": "block_hold", "frames": 14, "fps": 12, "loopFromFrame": 3 },
+      "guard": {
+        "blockable": ["light", "mid", "heavy"],
+        "damageMul": 0.3,
+        "staminaOnHit": { "light": -12, "mid": -20, "heavy": -35 },
+        "pushbackPx": 6
+      },
+      "onStaminaEmpty": { "goto": "break" },
+      "cancel": {
+        "onRelease": ["idle", "walk", "atk1"],
+        "onAttack": ["guardCounter"]
+      },
+      "feedback": { "hitstopTicks": 2, "shake": 0.04, "spark": ["#fff6da", "#ffd6e2"], "sfx": "block" }
+    },
+
+    "parryLight": {
+      "label": "分击｜拍挡（轻攻击/投射物专用）",
+      "anim": { "key": "block_parry_light", "frames": 10, "fps": 30, "loopFromFrame": null },
+      "active": { "fromTick": 0, "toTick": 14 },
+      "guard": {
+        "blockable": ["light", "projectile"],
+        "damageMul": 0,
+        "staminaOnHit": 0,
+        "enemyStunTicks": 10
+      },
+      "onWhiff": { "stunTicks": 10 },
+      "cancel": { "onSuccess": ["atk1", "dash"], "onWhiff": [] },
+      "feedback": { "hitstopTicks": 3, "shake": 0.02, "spark": ["#ffffff", "#ffd166"], "sfx": "parryLight" }
+    },
+
+    "parryPerfect": {
+      "label": "卸力｜精准弹反",
+      "anim": { "key": "block_parry_perfect", "frames": 12, "fps": 30, "loopFromFrame": null },
+      "active": { "fromTick": 0, "toTick": 12 },
+      "guard": {
+        "blockable": ["light", "mid", "heavy"],
+        "damageMul": 0,
+        "staminaOnHit": 15,
+        "enemyStunTicks": 30
+      },
+      "onWhiff": { "stunTicks": 16 },
+      "cancel": { "onSuccess": ["atk1", "atk4", "dash"], "onWhiff": [] },
+      "feedback": { "hitstopTicks": 6, "shake": 0.1, "camDip": 6, "spark": ["#ffffff", "#ff5d8f", "#ffd166"], "sfx": "parryPerfect" }
+    },
+
+    "break": {
+      "label": "崩防僵直",
+      "anim": { "key": "block_break", "frames": 22, "fps": 12, "loopFromFrame": null },
+      "locked": true,
+      "onEnd": { "goto": "idle", "staminaSet": 30 },
+      "feedback": { "shake": 0.12, "spark": ["#8a5a33", "#b98a52"], "sfx": "break" }
+    }
+  },
+
+  "rules": {
+    "unblockable": ["armorBreak", "grab"],
+    "defaultDeny": true,
+    "note": "blockable 为白名单；未列出的攻击类型默认不可格挡/不可弹反，新增招式不会漏判",
+    "resolveOrder": "敌方命中瞬间：先查 parryPerfect.active 且类型在白名单 → 再查 parryLight.active 且类型在白名单 → 再查 hold → 否则吃满伤害"
+  }
+}
